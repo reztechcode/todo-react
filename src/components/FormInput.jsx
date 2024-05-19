@@ -50,7 +50,7 @@ class FormInput extends React.Component {
                 <Button text="add" variant="primary" action={this.submit} />
             </form>
         )
-
     }
 }
 export default FormInput;
+

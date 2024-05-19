@@ -34,7 +34,7 @@ class App extends React.Component {
     })
   }
   addTask = (data) => {
-    alert("tambah data..")
+    console.log(data)
   }
 
   render() {
@@ -44,7 +44,7 @@ class App extends React.Component {
       <div>
         <div className='App'>
           <a href="https://rezweb.my.id" target="_blank">
-            <img src={reactLogo} className="logo react" alt="React logo" />
+            <img src={reactLogo} className="logo react " alt="React logo" />
           </a>
           <h1>Task List</h1>
         </div>
@@ -56,7 +56,7 @@ class App extends React.Component {
         </div>
 
         <div className='input-form'>
-          <FormInput />
+          <FormInput add={this.addTask} />
         </div>
       </div>
     )
