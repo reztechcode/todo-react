@@ -1,7 +1,7 @@
 import React from "react"
 import propTypes from "prop-types"
 import Button from "./Button"
-const TodoItem = ({ todo, del }) => {
+const TodoItem = ({ todo, del, open }) => {
     const todoItem = {
         background: "#2da4f8",
         color: "#fff",
@@ -21,10 +21,11 @@ const TodoItem = ({ todo, del }) => {
         <div style={todoItem} >
             <p> {todo.title} </p>
             <div>
-                <Button text="edit" variant="success" />
+                <Button text="edit" variant="success" action={open} />
                 <Button text="delete" variant="warning" action={() => delById(todo.id)} />
             </div>
         </div>
+
     )
 }
 TodoItem.propTypes = {

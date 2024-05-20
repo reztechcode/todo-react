@@ -3,6 +3,7 @@ import React from "react";
 import reactLogo from './assets/react.svg'
 import TodoItem from './components/TodoItem'
 import FormInput from './components/FormInput'
+import EditModal from './components/EditModal'
 import './App.css'
 
 
@@ -17,16 +18,14 @@ class App extends React.Component {
         id: 2,
         title: "Baca Quran"
       },
-      {
-        id: 3,
-        title: "Baca Buku"
-      },
-      {
-        id: 4,
-        title: "Nonton..."
-      }
-    ]
+    ],
+    isEdit: false,
+    editData: {
+      id: "",
+      title: ""
+    },
   }
+  
   deleteTask = (id) => {
     // console.log("delete ok")
     this.setState({
@@ -43,6 +42,26 @@ class App extends React.Component {
       todos: [...this.state.todos, newData]
     })
   }
+  
+  openModal = () => {
+    this.setState({
+      isEdit: true
+    })
+  }
+  closeModal = () => {
+    this.setState({
+      isEdit: false
+    })
+  }
+  setTitle = e => {
+    this.setState({
+      editData: {
+        ...this.state.editData,
+        title: e.target.value
+      }
+    })
+  }
+
 
 
 
@@ -60,13 +79,20 @@ class App extends React.Component {
         <div className="list">
           {todos.map(item =>
             // kiirm props ke komponen todoitem
-            <TodoItem key={item.id} todo={item} del={this.deleteTask} />
+            <TodoItem
+              key={item.id}
+              todo={item}
+              del={this.deleteTask}
+              open={this.openModal}
+            />
+
           )}
         </div>
-
         <div className='input-form'>
           <FormInput add={this.addTask} />
         </div>
+         <EditModal edit={this.state.isEdit} close={this.closeModal}/>
+
       </div>
     )
   }
