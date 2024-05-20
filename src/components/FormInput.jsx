@@ -36,7 +36,6 @@ class FormInput extends React.Component {
             text: ""
         })
     }
-
     render() {
         return (
             <form style={inputForm} onSubmit={this.submit}>

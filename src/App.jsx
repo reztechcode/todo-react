@@ -62,9 +62,6 @@ class App extends React.Component {
     })
   }
 
-
-
-
   render() {
     const { todos } = this.state;
 
@@ -85,20 +82,15 @@ class App extends React.Component {
               del={this.deleteTask}
               open={this.openModal}
             />
-
           )}
         </div>
         <div className='input-form'>
           <FormInput add={this.addTask} />
         </div>
          <EditModal edit={this.state.isEdit} close={this.closeModal}/>
-
       </div>
     )
   }
 }
-
-
-
 export default App;
 

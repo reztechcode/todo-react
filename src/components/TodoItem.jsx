@@ -25,12 +25,10 @@ const TodoItem = ({ todo, del, open }) => {
                 <Button text="delete" variant="warning" action={() => delById(todo.id)} />
             </div>
         </div>
-
     )
 }
 TodoItem.propTypes = {
     todo: propTypes.object.isRequired,
     del: propTypes.func.isRequired
 }
-
 export default TodoItem;
