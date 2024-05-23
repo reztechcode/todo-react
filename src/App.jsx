@@ -25,7 +25,7 @@ class App extends React.Component {
       title: ""
     },
   }
-  
+
   deleteTask = (id) => {
     // console.log("delete ok")
     this.setState({
@@ -42,10 +42,14 @@ class App extends React.Component {
       todos: [...this.state.todos, newData]
     })
   }
-  
-  openModal = () => {
+
+  openModal = (id, data) => {
     this.setState({
-      isEdit: true
+      isEdit: true,
+      editData: {
+        id,
+        title: data
+      }
     })
   }
   closeModal = () => {
@@ -87,7 +91,12 @@ class App extends React.Component {
         <div className='input-form'>
           <FormInput add={this.addTask} />
         </div>
-         <EditModal edit={this.state.isEdit} close={this.closeModal}/>
+        <EditModal
+          edit={this.state.isEdit}
+          close={this.closeModal}
+          change={this.setTitle}
+          data={this.state.editData}
+        />
       </div>
     )
   }
