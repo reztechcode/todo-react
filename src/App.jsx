@@ -25,6 +25,20 @@ class App extends React.Component {
       title: ""
     },
   }
+  update = () => {
+    const { id, title } = this.state.editData
+    const newData = { id, title }
+    const newTodos = this.state.todos
+    newTodos.splice((id - 1), 1, newData)
+    this.setState({
+      todos: newTodos,
+      isEdit: false,
+      editData: {
+        id: "",
+        title: ""
+      }
+    })
+  }
 
   deleteTask = (id) => {
     // console.log("delete ok")
@@ -96,6 +110,7 @@ class App extends React.Component {
           close={this.closeModal}
           change={this.setTitle}
           data={this.state.editData}
+          update ={this.update}
         />
       </div>
     )

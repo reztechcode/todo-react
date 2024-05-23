@@ -3,7 +3,7 @@ import Button from "./Button"
 import "../styles/EditModal.css"
 class EditModal extends React.Component {
     render() {
-        const { edit, close, data, change } = this.props;
+        const { edit, close, data, change, update } = this.props;
         if (edit) {
             return (
                 <div className="modal-container">
@@ -13,7 +13,7 @@ class EditModal extends React.Component {
                             <input type="text" defaultValue={data.title} onChange={change} />
                         </div>
                         <div className="btn-group">
-                            <Button text="edit" variant="success" />
+                            <Button text="edit" variant="success" action={update}  />
                             <Button text="cancel" variant="warning" action={close} />
                         </div>
                     </div>
